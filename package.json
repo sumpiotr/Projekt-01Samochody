@@ -1,17 +1,24 @@
 {
     "name": "projekt01",
     "version": "1.0.0",
-    "description": "Piotr Sum projekt 1",
+    "description": "Piotr Sum projekt 01",
     "main": "server.js",
-    "dependencies": {
-        "express": "^4.17.1",
-        "nedb": "^1.8.0"
-    },
-    "devDependencies": {},
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sumpiotr/Projekt-01.git"
+    },
     "author": "Piotr Sum",
-    "license": "ISC"
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sumpiotr/Projekt-01/issues"
+    },
+    "homepage": "https://github.com/sumpiotr/Projekt-01#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "nedb": "^1.8.0"
+    }
 }
