@@ -1,0 +1,82 @@
+<section class="cars">
+
+    <div class="formContainer container">
+        <p class="comment">Dane pojazdu</p>
+        <form action="/add" method="GET">
+            <table class="form">
+                <tr>
+                    <td>ubezpieczony: </td>
+                    <td><input type="checkbox" name="insured"></td>
+                </tr>
+                <tr>
+                    <td>benzyna: </td>
+                    <td><input type="checkbox" name="gas"></td>
+                </tr>
+                <tr>
+                    <td>uszkodzony: </td>
+                    <td><input type="checkbox" name="damaged"></td>
+                </tr>
+                <tr>
+                    <td>napęd 4x4: </td>
+                    <td><input type="checkbox" name="engine"></td>
+                </tr>
+            </table>
+            <button type="submit" class="defaultButton">DODAJ DO BAZY</button>
+        </form>
+    </div>
+
+    <div class="dataContainer container">
+        <p class="comment">Dane pojazdów</p>
+        <table>
+            <tr>
+                <td></td>
+                <td>ubezpieczony: </td>
+                <td>benzyna: </td>
+                <td>uszkodzony: </td>
+                <td>napęd 4x4: </td>
+                <td></td>
+                <td></td>
+            </tr>
+            {{#each data}}
+            {{#if form}}
+
+            <tr>
+                <form method="GET">
+                <td>{{@index}}</td>
+                {{#withCarData this}}
+                    <td>{{> select}}</td>
+                {{/withCarData}}
+                <td>   
+                        <button type="submit" class="defaultButton updateButton" formaction="/update">Save</button>
+                </td>
+                <td>
+                        <button type="submit" class="defaultButton" formaction="/cancel">Cancel</button>
+                </td>
+                 <input type="hidden" value="{{_id}}" name="id">
+                </form>
+            </tr>
+
+            {{else}}
+
+            <tr>
+                <form method="get">
+                <td>{{@index}}</td>
+                {{#withCarData this}}
+                    <td>{{value}}</td>
+                {{/withCarData}}
+                <td>
+                    <button formaction="/form" type="submit" class="defaultButton">Edit</button>
+                </td>
+                  <td>
+                   <button formaction="/remove" class="defaultButton deleteButton" type="submit" onclick='return confirm("Czy na pewno chcesz usunąć rekord?");'>Remove</button>
+                </td>
+                 <input type="hidden" value="{{_id}}" name="id">
+                 </form>
+            </tr>
+            {{/if}}
+            {{/each}}
+        </table>
+    </div>
+
+</section>
+
